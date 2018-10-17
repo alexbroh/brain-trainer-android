@@ -102,7 +102,13 @@ public class MainActivity extends AppCompatActivity {
                 Button choice = (Button) choicesBoard.getChildAt(i);
                 if (choice.getTag().toString().equals(Integer.toString(answerLocation)))
                     choice.setText(Integer.toString(correctAnswer));
-                else choice.setText(Integer.toString(rand.nextInt(98) + firstNum));
+                else {
+                    int wrongAnswer = rand.nextInt(99) + firstNum;
+                    while(wrongAnswer==correctAnswer){
+                        wrongAnswer=rand.nextInt(99) + firstNum;
+                    }
+                    choice.setText(Integer.toString(wrongAnswer));
+                }
             }
 
             //set up timer
