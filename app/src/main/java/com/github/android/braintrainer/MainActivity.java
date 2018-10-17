@@ -6,7 +6,6 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
-import android.widget.GridLayout;
 import android.widget.TextView;
 import java.util.Random;
 
@@ -26,6 +25,7 @@ public class MainActivity extends AppCompatActivity {
         Log.i("Game Status","Initializing!");
         gameState=GameState.LIVE;
 
+        //get rid of Go button
         Button initButton = (Button) view;
         initButton.setVisibility(View.GONE);
         boolean initialized = choicesBoard!=null&&timerTV!=null&problemTV!=null&&scoreTV!=null;
@@ -89,13 +89,13 @@ public class MainActivity extends AppCompatActivity {
 
             //set up new question
             Random rand = new Random();
-            int firstNum = rand.nextInt(98) + 1;
-            int secondNum = rand.nextInt(98) + 1;
+            int firstNum = rand.nextInt(99) + 1;
+            int secondNum = rand.nextInt(99) + 1;
             correctAnswer = firstNum + secondNum;
             problemTV.setText(Integer.toString(firstNum) + " + " + Integer.toString(secondNum));
 
             //find random answer locatoin
-            int answerLocation = rand.nextInt(3);
+            int answerLocation = rand.nextInt(4);
 
             //set up text of choice buttons
             for (int i = 0; i < choicesBoard.getChildCount(); i++) {
